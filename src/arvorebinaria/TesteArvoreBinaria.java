@@ -11,6 +11,8 @@ public class TesteArvoreBinaria {
 
         arvoreBinaria = ArvoreBinaria.deletarNo(arvoreBinaria, 15);
 
+        System.out.println(arvoreBinaria.buscar(15)); //retorno esperado = false
+        System.out.println(arvoreBinaria.buscar(45));
 
 
     }

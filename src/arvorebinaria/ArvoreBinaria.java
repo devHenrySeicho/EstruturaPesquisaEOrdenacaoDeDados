@@ -1,5 +1,7 @@
 package arvorebinaria;
 
+import java.util.*;
+
 public class ArvoreBinaria {
     private Folha folha;
     private ArvoreBinaria esquerda;
@@ -91,5 +93,48 @@ public class ArvoreBinaria {
         }
         return arvoreBinaria;
     }
+
+    public boolean buscar(int valor){
+        if(isEmpty()){
+            return false;
+        }
+
+        if(valor == this.folha.getValor()){
+            return true;
+        }
+        else if(valor < this.folha.getValor()){
+            if(this.esquerda == null){
+                return false;
+            }
+            return this.esquerda.buscar(valor);
+        }
+        else{
+            if(this.direita == null){
+                return false;
+            }
+            return this.direita.buscar(valor);
+        }
+    }
+
+    public int altura(){
+        if(isEmpty()){
+            return -1;
+        }
+
+        int alturaEsquerda = -1;
+        int alturaDireita = -1;
+
+        if(this.esquerda != null){
+            alturaEsquerda = this.esquerda.altura();
+        }
+
+        if(this.direita != null){
+            alturaDireita = this.direita.altura();
+        }
+
+        return 1 + Math.max(alturaEsquerda, alturaDireita); //Descobri essa classe que calcula o máximo entre dois parâmetros :D
+    }
+
+
 
 }
