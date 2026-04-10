@@ -135,6 +135,38 @@ public class ArvoreBinaria {
         return 1 + Math.max(alturaEsquerda, alturaDireita); //Descobri essa classe que calcula o máximo entre dois parâmetros :D
     }
 
+    public void exibirPorAltura() {
+        if (isEmpty()) {
+            System.out.println("Árvore vazia");
+            return;
+        }
 
+        Queue<ArvoreBinaria> fila = new LinkedList<>();
+        fila.add(this);
+
+        while (!fila.isEmpty()) {
+            int tamanhoNivel = fila.size();
+            System.out.print("[");
+
+            for (int i = 0; i < tamanhoNivel; i++) {
+                ArvoreBinaria atual = fila.poll();
+                System.out.print(atual.folha.getValor());
+
+                if (i < tamanhoNivel - 1) {
+                    System.out.print(" ");
+                }
+
+                if (atual.esquerda != null) {
+                    fila.add(atual.esquerda);
+                }
+
+                if (atual.direita != null) {
+                    fila.add(atual.direita);
+                }
+            }
+
+            System.out.print("] ");
+        }
+    }
 
 }
