@@ -8,12 +8,15 @@ public class TesteArvoreBinaria {
         arvoreBinaria.Inserir(new Folha(45));
         arvoreBinaria.Inserir(new Folha(7));
         arvoreBinaria.Inserir(new Folha(19));
+        arvoreBinaria.Inserir(new Folha(17));
+        arvoreBinaria.Inserir(new Folha(21));
 
         arvoreBinaria = ArvoreBinaria.deletarNo(arvoreBinaria, 15);
 
         System.out.println(arvoreBinaria.buscar(15)); //retorno esperado = false
         System.out.println(arvoreBinaria.buscar(45));
 
+        arvoreBinaria.exibirPorAltura();
 
     }
 
